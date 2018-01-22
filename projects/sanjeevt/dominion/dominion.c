@@ -647,7 +647,7 @@ int getCost(int cardNumber)
 void smithyCardEffect(int currentPlayer, int handPos, struct gameState *state)
 {
     //+3 Cards
-      for (int i = 0; i < 3; i++)
+      for (int i = 0; i <= 3; i++) // Bug: changed "<" to "<=" so 4 cards are drawn
     {
       drawCard(currentPlayer, state);
     }
@@ -658,7 +658,7 @@ void smithyCardEffect(int currentPlayer, int handPos, struct gameState *state)
 
 void adventurerCardEffect(int drawntreasure, int currentPlayer, int cardDrawn, int temphand[], int z, struct gameState *state)
 {
-  while(drawntreasure<2){
+  while(drawntreasure<=2){ //Bug: changed "<" to " <=" so card allows player to draw 3 treasure cards
   if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
     shuffle(currentPlayer, state);
   }
@@ -684,7 +684,8 @@ void villageCardEffect(int currentPlayer, int handPos, struct gameState *state)
       drawCard(currentPlayer, state);
       
       //+2 Actions
-      state->numActions = state->numActions + 2;
+      state->numActions = state->numActions + 1;
+      //Bug:  Adds only 1 extra action instead of 2
       
       //discard played card from hand
       discardCard(handPos, currentPlayer, state, 0);
@@ -696,7 +697,8 @@ void greatHallCardEffect(int currentPlayer, int handPos, struct gameState *state
       drawCard(currentPlayer, state);
       
       //+1 Actions
-      state->numActions++;
+      state->numActions+2;
+      //Bug: Add 2 extra actions instead of 1
       
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
@@ -710,7 +712,7 @@ void embargoCardEffect(int currentPlayer, int handPos, struct gameState *state, 
       //see if selected pile is in play
       if ( state->supplyCount[choice1] == -1 )
   {
-    return -1;
+    return 0;  //Bug: changed return from -1 to 0.  Pile is always in play
   }
       
       //add embargo token to selected supply pile
