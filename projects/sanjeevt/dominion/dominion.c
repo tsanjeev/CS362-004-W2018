@@ -712,7 +712,7 @@ void embargoCardEffect(int currentPlayer, int handPos, struct gameState *state, 
       //see if selected pile is in play
       if ( state->supplyCount[choice1] == -1 )
   {
-    return 0;  //Bug: changed return from -1 to 0.  Pile is always in play
+    return -1;
   }
       
       //add embargo token to selected supply pile
