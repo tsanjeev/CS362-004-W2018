@@ -50,6 +50,9 @@ int main()
     int playerChoice = 0;
 	struct gameState G, testG;
 	int card = 7; //adventurer;
+	int usedCard = 1;
+	int advenCard = 1;
+
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room};
 
@@ -61,10 +64,11 @@ int main()
 	int numCards = numHandCards(&testG);
 	int deckCount = testG.deckCount[thisPlayer];
 	
-	printf("NUMBER OF CARDS IN HAND BEFORE PLAYING ADVENTURER: %d\n", numCards);
+	printf("NUMBER OF CARDS IN HAND BEFORE PLAYING ADVENTURER: %d\n", numCards + advenCard);
+	printf("%s\n", "Adventurer");
 	printHand(numCards, &testG);
 	
-	printf("NUMBER OF CARDS IN DECK: %d\n", deckCount);
+	printf("\nNUMBER OF CARDS IN DECK: %d\n", deckCount);
 	printDeck(deckCount, thisPlayer, &testG);
 
 	cardEffect(card, playerChoice, playerChoice, playerChoice, &testG, 0, 0);
@@ -94,6 +98,7 @@ int main()
 	}
 
 	printf("HAND BEFORE PLAYING ADVENTURER: \n");
+	printf("%s\n", "Adventurer");
 	printHand(numCards, &testG);
 
 	printf("\nDECK: \n");

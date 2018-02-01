@@ -6,7 +6,7 @@
 #include <string.h>
 #include <assert.h>
 
-//test card smithy
+//test card smithy + 3 cards
 
 void myAssert(int boolean, char *msg1, char *msg2)
 {
@@ -25,6 +25,9 @@ int main()
     int playerChoice = 0;
 	struct gameState G, testG;
 	int card = 13; //smithy;
+	int smithyCard = 1;
+	int addCards = 3;
+	int usedCard = 1;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room};
 
@@ -32,10 +35,10 @@ int main()
 	memcpy(&testG, &G, sizeof(struct gameState));
 
 	printf(" ----- Card Test 1: Smithy -----\n");
-	printf("Number of Cards Before Playing Smithy: %d\n",numHandCards(&testG));
+	printf("Number of Cards Before Playing Smithy: %d\n",numHandCards(&testG) + smithyCard);
 	cardEffect(card, playerChoice, playerChoice, playerChoice, &testG, 0, 0);
-	printf("Number of Cards After Playing Smithy: %d, Expected Number of Cards: %d\n", numHandCards(&testG), G.handCount[G.whoseTurn] + 2);
-	myAssert(G.handCount[G.whoseTurn] + 2 == testG.handCount[testG.whoseTurn], "Player has correct number of cards\n", "Player has incorrect number of cards\n");
+	printf("Number of Cards After Playing Smithy: %d, Expected Number of Cards: %d\n", numHandCards(&testG) - smithyCard, G.handCount[G.whoseTurn] + addCards - usedCard + smithyCard);
+	myAssert(G.handCount[G.whoseTurn] + addCards - usedCard + smithyCard == testG.handCount[testG.whoseTurn] - smithyCard ,"Player has correct number of cards\n", "Player has incorrect number of cards\n");
 
 
 }
