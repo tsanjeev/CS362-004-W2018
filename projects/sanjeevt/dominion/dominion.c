@@ -704,7 +704,7 @@ void greatHallCardEffect(int currentPlayer, int handPos, struct gameState *state
       discardCard(handPos, currentPlayer, state, 0);
 }
 
-void embargoCardEffect(int currentPlayer, int handPos, struct gameState *state, int choice1)
+int embargoCardEffect(int currentPlayer, int handPos, struct gameState *state, int choice1)
 {
    //+2 Coins
       state->coins = state->coins + 2;
