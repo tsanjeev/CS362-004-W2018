@@ -6,7 +6,7 @@
 #include <string.h>
 #include <assert.h>
 
-//test card council room
+//test card council room +4 cards, +1 buy, everyone draws 1 card
 
 void myAssert(int boolean, char *msg1, char *msg2)
 {
