@@ -18,7 +18,8 @@ void myAssert(int boolean, char *msg1, char *msg2)
 
 void printHand(int nCard, struct gameState *state)
 {
-	for(int i = 0; i < nCard; i++)
+	int i;
+	for(i = 0; i < nCard; i++)
 	{
 		if(handCard(i, state) == copper)
 			printf("%s\n", "Copper");
@@ -31,7 +32,8 @@ void printHand(int nCard, struct gameState *state)
 
 void printDeck(int nDeck, int thisPlayer,  struct gameState *state)
 {
-	for(int k = 0; k < nDeck; k++)
+	int k;
+	for(k = 0; k < nDeck; k++)
 	{
 		if(state->deck[thisPlayer][k] == copper)
 			printf("%s\n", "Copper");
@@ -92,7 +94,8 @@ int main()
 	testG.deckCount[thisPlayer] = deckCount;
 
 	//SWAP NEW DECK
-	for(int g = 0; g < deckCount; g++)
+	int g;
+	for(g = 0; g < deckCount; g++)
 	{
 		testG.deck[thisPlayer][g] = newDeck[g];
 	}

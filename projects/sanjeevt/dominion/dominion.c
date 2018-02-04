@@ -647,7 +647,8 @@ int getCost(int cardNumber)
 void smithyCardEffect(int currentPlayer, int handPos, struct gameState *state)
 {
     //+3 Cards
-      for (int i = 0; i <= 3; i++) // Bug: changed "<" to "<=" so 4 cards are drawn
+    int i;
+      for (i = 0; i <= 3; i++) // Bug: changed "<" to "<=" so 4 cards are drawn
     {
       drawCard(currentPlayer, state);
     }
@@ -656,8 +657,10 @@ void smithyCardEffect(int currentPlayer, int handPos, struct gameState *state)
       discardCard(handPos, currentPlayer, state, 0);
 }
 
-void adventurerCardEffect(int drawntreasure, int currentPlayer, int cardDrawn, int temphand[], int z, struct gameState *state)
+void adventurerCardEffect(int currentPlayer, int temphand[], int z, struct gameState *state)
 {
+  int cardDrawn = 0;
+  int drawntreasure = 0;
   while(drawntreasure<=2){ //Bug: changed "<" to " <=" so card allows player to draw 3 treasure cards
   if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
     shuffle(currentPlayer, state);
@@ -697,7 +700,7 @@ void greatHallCardEffect(int currentPlayer, int handPos, struct gameState *state
       drawCard(currentPlayer, state);
       
       //+1 Actions
-      state->numActions+2;
+      state->numActions = 3;
       //Bug: Add 2 extra actions instead of 1
       
       //discard card from hand
@@ -720,6 +723,7 @@ int embargoCardEffect(int currentPlayer, int handPos, struct gameState *state, i
       
       //trash card
       discardCard(handPos, currentPlayer, state, 1);
+      return 0;
 }
 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
@@ -734,8 +738,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
-  int cardDrawn;
   int z = 0;// this is the counter for the temp hand
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
@@ -747,7 +749,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     {
     case adventurer:
     
-      adventurerCardEffect(drawntreasure, currentPlayer, cardDrawn, temphand, z, state);
+      adventurerCardEffect(currentPlayer, temphand, z, state);
       return 0;
 			
     case council_room:

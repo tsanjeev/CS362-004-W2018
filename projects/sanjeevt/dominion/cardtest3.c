@@ -37,14 +37,14 @@ int main()
 
 	printf(" ----- Card Test 3: Council Room -----\n");
 	printf("Number of Cards Before Playing Council Room: %d\n",numHandCards(&testG));
-	printf("Number of Cards of Opponent's Hand: %s\n", testG.handCount[1]);
+	printf("Number of Cards of Opponent's Hand: %d\n", testG.handCount[1]);
 	cardEffect(card, playerChoice, playerChoice, playerChoice, &testG, 0, 0);
 	printf("Number of Cards After Playing Council Room: %d, Expected Number of Cards: %d\n", numHandCards(&testG), G.handCount[G.whoseTurn] + addCards - usedCard);
 	myAssert(G.handCount[G.whoseTurn] + addCards - usedCard == testG.handCount[testG.whoseTurn], "Player has correct number of cards\n", "Player has incorrect number of cards\n");
 	int extraBuy = 1;
 	myAssert(testG.numBuys == G.numBuys + extraBuy, "Player has correct number of buys\n", "Player has incorrect number of buys\n");
-
-	for(int i = 1; i < numPlayers; i++)
+	int i;
+	for(i = 1; i < numPlayers; i++)
 	{
 		myAssert(testG.handCount[i] == G.handCount[i] + oneCard, "Other Players Gained 1 Card\n", "Other Players Did Not Gain 1 Card\n");
 	}

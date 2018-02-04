@@ -1,7 +1,7 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "rngs.h"
 #include <stdio.h>
+#include "rngs.h"
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
@@ -19,6 +19,7 @@ void myAssert(int boolean, char *msg1, char *msg2)
 
 int main()
 {
+	
 	int seed = 1000;
     int numPlayers = 2;
     int thisPlayer = 0;

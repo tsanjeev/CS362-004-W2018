@@ -15,11 +15,11 @@ void myAssert(int boolean, char *msg1, char *msg2)
 		printf("TEST FAILED: %s\n", msg2);
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
 	int seed = 1000;
     int numPlayers = 3;
-    int thisPlayer = 0;
+    //int thisPlayer = 0;
 	struct gameState G, testG;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room};
@@ -60,7 +60,8 @@ int main(int argc, char const *argv[])
 
 	int currPlayer = whoseTurn(&testG);
 	printf("Current Player: Player %d Has %d Cards\n", currPlayer, numHandCards(&testG));
-	for(int j = 0; j < 12; j++)
+	int j;
+	for(j = 0; j < 12; j++)
 		gainCard(province, &testG, 2, currPlayer);
 	printf("Player %d Gains All 12 Province Cards - Game Should Not Advance\n", currPlayer);
 	printf("Current Player %d Has %d Cards\n", currPlayer, numHandCards(&testG));
@@ -68,4 +69,5 @@ int main(int argc, char const *argv[])
 	endTurn(&testG);
 	int gameOver = isGameOver(&testG);
 	myAssert((gameOver == gOver) && (currPlayer == whoseTurn(&testG)), "Game Successfully Ended - Turn Did Not Advance", "Game Did Not End Properly - Turn Should Not Advance");
+
 }

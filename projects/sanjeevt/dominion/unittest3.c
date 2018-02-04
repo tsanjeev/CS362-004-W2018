@@ -35,7 +35,8 @@ int main(int argc, char const *argv[])
 	int numCards = numHandCards(&testG);
 	printf("Number of Cards in Hand: %d\n", numCards);
 	printf("Cards in hand: \n");
-	for(int i = 0; i < numCards; i++)
+	int i;
+	for(i = 0; i < numCards; i++)
 	{
 		if(testG.hand[thisPlayer][i] == 4)
 			cardName = "Copper";
@@ -44,7 +45,7 @@ int main(int argc, char const *argv[])
 		printf("%d - %s\n", testG.hand[thisPlayer][i], cardName);
 	}
 	
-	for (int i = 0; i < testG.handCount[thisPlayer]; i++){
+	for (i = 0; i < testG.handCount[thisPlayer]; i++){
     	testG.discard[thisPlayer][testG.discardCount[thisPlayer]++] = testG.hand[thisPlayer][i];//Discard
     	testG.hand[thisPlayer][i] = -1;//Set card to -1
   	}
@@ -62,7 +63,7 @@ int main(int argc, char const *argv[])
 	printf("Number of Cards in Hand: %d\n", numCards);
 	myAssert(numCards == 5, "Correct Number of Cards Added", "Incorrect Number of Cards Added");
 	printf("Cards in hand: \n");
-	for(int i = 0; i < numCards; i++)
+	for(i = 0; i < numCards; i++)
 	{
 		if(testG.hand[thisPlayer][i] == 4)
 			cardName = "Copper";

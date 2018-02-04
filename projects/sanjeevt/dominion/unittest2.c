@@ -19,7 +19,6 @@ int main(int argc, char const *argv[])
 {
 	int seed = 1000;
     int numPlayers = 3;
-    int thisPlayer = 0;
 	struct gameState G, testG;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room};
