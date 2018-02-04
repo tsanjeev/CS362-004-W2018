@@ -63,6 +63,14 @@ unittestresults: cardtest1 cardtest2 cardtest3 cardtest4 unittest1 unittest2 uni
 	-./unittest4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
+	gcov cardtest1.c dominion.c >> unittestresults.out
+	gcov cardtest2.c dominion.c >> unittestresults.out
+	gcov cardtest3.c dominion.c >> unittestresults.out
+	gcov cardtest4.c dominion.c >> unittestresults.out
+	gcov unittest1.c dominion.c >> unittestresults.out
+	gcov unittest2.c dominion.c >> unittestresults.out
+	gcov unittest3.c dominion.c >> unittestresults.out
+	gcov unittest4.c dominion.c >> unittestresults.out
 
 all: playdom player unittestresults
 
