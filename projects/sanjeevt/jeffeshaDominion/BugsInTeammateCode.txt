@@ -1,0 +1,117 @@
+DominionBug-1:
+Noverse Bug Reporting Template
+==============================
+
+Title:  Adventurer Card Bug
+
+Class: Card Bug
+
+Date: 2/24/18         
+Reported By:   Ted Sanjeevi
+Email:      
+
+
+Product:                        Version:
+Platform:                       Version:
+Browser:                        Version:
+URL:        
+
+Is it reproducible: Yes 
+
+Description
+===========
+According to tests run, the incorrect number of cards are being being added to the players hand after playing the Adventurer card.  The card is suppose to allow the player to receive 2 treasure cards if they are available in the player's deck.  
+
+
+Steps to Produce/Reproduce
+--------------------------
+Start new game.  Each game starts with 7 copper and 3 estates so player should have plenty of treasure cards to be able to draw 2 when playing the adventurer card.  Player receives incorrect number of treasure cards.
+
+
+Expected Results
+----------------
+player should have extra 2 treasure cards
+
+
+Actual Results
+--------------
+player only receives 1 extra treasure card
+
+
+Workarounds
+-----------
+ 
+
+
+Attachments
+-----------
+
+
+
+Other Information
+-----------------
+The tests passes when there is only 1 treasure card in the deck to draw.
+The adventure card seems to be drawing the correct type of cards but the incorrect number of cards.
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+
+DominionBug-2:
+Noverse Bug Reporting Template
+==============================
+
+Title:  Village Card Bug
+
+Class: Card Bug
+
+Date: 2/24/18         
+Reported By:   Ted Sanjeevi
+Email:      
+
+
+Product:                        Version:
+Platform:                       Version:
+Browser:                        Version:
+URL:        
+
+Is it reproducible: Yes 
+
+Description
+===========
+According to tests run, the incorrect number of actions are being added to the player playing the village card.  The village card is suppose to give the player 1 card and 2 actions. Player receives incorrect number of actions.
+
+
+Steps to Produce/Reproduce
+--------------------------
+Start new game.  And play the village card.  
+
+Expected Results
+----------------
+player should receive 1 card and 2 actions
+
+
+Actual Results
+--------------
+player receives 1 card but receives 3 extra actions.
+
+
+Workarounds
+-----------
+ 
+
+
+Attachments
+-----------
+
+
+
+Other Information
+-----------------
+The tests indicate that each time the card is played, the player receives the correct cards but incorrect number of actions.  1 more action than is required by the card.
